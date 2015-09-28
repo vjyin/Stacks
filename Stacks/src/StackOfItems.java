@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class StackOfItems<Item> 
 {
@@ -32,6 +33,29 @@ public class StackOfItems<Item>
 			return null;
 		}
 	}
+	
+	public Iterator<Item> iterator()
+	{
+		return new StackOfItemsIterator();
+	}
+	
+	private class StackOfItemsIterator implements Iterator<Item>
+	{
+		public boolean hasNext()
+		{
+			if (! isEmpty())
+				return true;
+			else
+				return false;
+		}
 		
+		public Item next()
+		{
+			return pop();
+		}
+	
+	}
+	
+	
 }
 
